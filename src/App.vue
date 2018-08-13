@@ -1,18 +1,29 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="game">
+    <Header :name="name"
+        :balance.sync="balance"
+    />
+    <Dice :balance.sync="balance"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Dice from './components/Dice.vue'
+import Header from './components/Header.vue'
 
 export default {
-  name: 'app',
+  name: 'GameFrame',
   components: {
-    HelloWorld
+    Dice,
+    Header
+  },
+  data() {
+    return {
+      balance: 18,
+      name: 'Endpass Dice'
+    }
   }
+
 }
 </script>
 
